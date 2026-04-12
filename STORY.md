@@ -1,3 +1,5 @@
+![Multi-agent AI on Apple Silicon](header.png)
+
 # Multi-agent AI on Apple Silicon — what I built, what broke, how to avoid it
 
 *A few weeks of failures before it actually worked.*
