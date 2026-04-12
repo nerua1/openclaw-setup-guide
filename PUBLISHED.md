@@ -7,6 +7,7 @@ Track of all places where this guide or skills were posted.
 | Date | Platform | Link | Notes |
 |------|----------|------|-------|
 | 2026-04-12 | GitHub | [openclaw-setup-guide](https://github.com/nerua1/openclaw-setup-guide/blob/main/STORY.md) | Published |
+| 2026-04-12 | OpenClaw official docs (PR) | [openclaw/openclaw#65531](https://github.com/openclaw/openclaw/pull/65531) | Open PR — community-skills.md, pending merge |
 | — | OpenClaw Discord | — | Pending — discord.com/invite/clawd |
 
 ## Skills
