@@ -38,30 +38,30 @@ If you install OpenClaw first and it breaks before Claude Code is ready, you hav
 
 ---
 
-## 2. RAM reality: 32GB is not enough for local orchestrator
+## 2. RAM reality: why cloud orchestrator makes sense at 32GB
 
-### The problem
+### The actual constraint
 
-Running a capable local orchestrator (35B+ model) + 30B subagent simultaneously on 32GB:
-- Orchestrator: ~20GB VRAM
-- Subagent: ~18GB VRAM
-- **Total: 38GB → OOM → crash**
+32GB minus ~6-7GB for the OS = ~24-25GB available. That's enough to run one large model at a time — `qwen3.5-35b-a3b` or `huihui-qwen3.5-27b` loads fine.
 
-### The solution that works
+The problem is architectural: if you load a 35B as orchestrator, there's no RAM left for a subagent. You can use a smaller orchestrator to fit a subagent — but then the orchestrator is too weak to actually orchestrate.
+
+### The real issue: quality gap
+
+The difference between a local model and Kimi k2.5 as orchestrator is enormous. Kimi offers reasoning-level quality (comparable to Claude 3.5 Thinking) at the cheapest tokens available right now. A local 35B next to it is a different league for planning and delegation.
+
+### What works at 32GB
 
 ```
-32GB setup (works):
-  Orchestrator: Cloud API (Kimi/GLM/Claude) — fast, no RAM cost
-  Subagents:    LM Studio local models (8B-30B) — cheap/free
-
-64GB setup (ideal):
-  Orchestrator: Cloud API or large local (35B+)
-  Subagents:    Local 30B models in parallel (up to 3)
+Orchestrator: Kimi k2.5 (cloud, cheap, real reasoning)
+Subagents:    LM Studio local 30B (free, good enough for execution)
 ```
+
+At 64GB+ you can experiment with a local orchestrator — but you'll likely come back to Kimi once you see the planning quality difference.
 
 **Good cheap API options for orchestrator:**
-- Kimi k2.5 (moonshot) — best reasoning, handles Polish, cheap
-- GLM-4-Flash — very cheap ($0.20/M tokens), good for routing
+- Kimi k2.5 (moonshot) — best reasoning per token right now, handles Polish
+- GLM-4-Flash — very cheap ($0.20/M tokens), good for simple routing
 - Claude API — expensive but best quality (use subscription via Claude Code instead)
 
 ### Rule: never run orchestrator locally on 32GB
