@@ -158,6 +158,6 @@ Full list + source: **github.com/nerua1**
 
 ---
 
-Jeśli to oszczędziło Twój czas: [☕ PayPal.me/nerudek](https://www.paypal.me/nerudek)
+If this saved you time: [☕ PayPal.me/nerudek](https://www.paypal.me/nerudek)
 
 Happy to answer questions about any part of this.

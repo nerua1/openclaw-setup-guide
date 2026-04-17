@@ -11,4 +11,4 @@ Then load: `/skill openclaw-setup-guide`
 
 ---
 
-Jeśli to oszczędziło Twój czas: [☕ PayPal.me/nerudek](https://www.paypal.me/nerudek)
+If this saved you time: [☕ PayPal.me/nerudek](https://www.paypal.me/nerudek)
